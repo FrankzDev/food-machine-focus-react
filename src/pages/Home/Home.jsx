@@ -9,11 +9,11 @@ const Home = () => {
         <Box display={ 'flex' } overflow={ 'hidden' }>
             <Box height={ '100vh' } width={ '80%' }>
                 {/* HEADER SECTION */}
-                <Box height={ '10vh' }>
+                <Box height={ '72px' }>
                     <MainHeader />
                 </Box>
                 {/* PRODUCT LIST SECTION */}
-                <Box height={ '90vh' } sx={{ overflowY: 'scroll' }}>
+                <Box sx={{ overflowY: 'scroll' }}>
                     <ProductList />
                 </Box>
             </Box>

@@ -1,9 +1,17 @@
-import { Box } from "@mui/material"
+import { Box, Grid } from "@mui/material"
+import { ProductItem } from "./ProductItem";
 
 const ProductList = () => {
     return(
-        <Box>
-            PRODUCTS SECTION
+        <Box pl={8}>
+            <Grid
+                container
+                mt={5}
+                mb={5}
+                spacing={2}
+                justifyContent={'flex-start'}>
+                <ProductItem />
+            </Grid>
         </Box>
     )
 };
