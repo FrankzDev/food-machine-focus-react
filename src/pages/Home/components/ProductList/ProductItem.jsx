@@ -4,7 +4,7 @@ import { makeStyles } from '@mui/styles';
 import { grey, orange } from "@mui/material/colors";
 import { Box } from "@mui/system";
 
-export const ProductItem = () => {
+export const ProductItem = (props) => {
 
     const useStyles = makeStyles({
         media: {
@@ -25,14 +25,14 @@ export const ProductItem = () => {
     const classes = useStyles();
 
     return(
-        <Grid item width={300} height={600}>
+        <Grid item width={300}>
             <Card sx={{ color: grey[700] }}>
                 <CardMedia
                     className={classes.media}
                     component={'img'}
                     height={ 200 }
-                    alt=""
-                    image="https://assets.epicurious.com/photos/57c5c6d9cf9e9ad43de2d96e/master/pass/the-ultimate-hamburger.jpg"/>
+                    alt={ props.product.name }
+                    image={ props.product.thumbnail } />
                     <Box
                         height={50}
                         padding={2}
@@ -43,7 +43,7 @@ export const ProductItem = () => {
                             variant="h6"
                             fontWeight={600}
                             sx={{ color: orange[500] }}>
-                            Hamburger
+                            { props.product.name }
                         </Typography>
                         <Stack
                             display={'flex'}
@@ -53,7 +53,7 @@ export const ProductItem = () => {
                                 fontSize="small"
                                 sx={{ color: orange[500] }} />
                             <Typography variant="caption" textAlign={'center'}>
-                                Time
+                                { props.product.preparation_time }
                             </Typography>
                         </Stack>
                     </Box>

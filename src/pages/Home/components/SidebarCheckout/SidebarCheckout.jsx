@@ -13,13 +13,15 @@ export const SidebarCheckout = () => {
                     background: grey[900],
                     color: grey[300],
                     boxShadow: 1}}>
-            <Box height={'72px'}>
+            <Box>
                 <Typography
                     variant="h5"
-                    pt={4}
+                    height={'10vh'}
                     fontWeight={900}
                     letterSpacing={0.5}
-                    textAlign={'center'}
+                    display={'flex'}
+                    alignItems={'center'}
+                    justifyContent={'center'}
                     sx={{ color: orange[600] }}>
                     Checkout
                 </Typography>
@@ -31,7 +33,7 @@ export const SidebarCheckout = () => {
                 </List>
             </Box>
 
-            <Box position={'absolute'} bottom={0} width={'20%'}>
+            <Box position={'absolute'} bottom={0} width={'15%'}>
                 <Divider variant="middle" style={{ background: grey[600] }} />
                 <CheckoutTotalTime />
             </Box>

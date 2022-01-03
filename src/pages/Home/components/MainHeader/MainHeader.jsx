@@ -6,7 +6,10 @@ export const MainHeader = () => {
         <Box>
             <Typography
                 pl={8}
-                pt={4}
+                width={'auto'}
+                height={'10vh'}
+                display={'flex'}
+                alignItems={'center'}
                 variant="h5"
                 fontWeight={900}
                 letterSpacing={0.5}
