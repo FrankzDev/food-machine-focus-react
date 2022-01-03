@@ -1,9 +1,8 @@
-import { Divider, Typography } from "@mui/material"
-import { grey, orange } from "@mui/material/colors";
+import { Typography } from "@mui/material"
 
 import { Box } from "@mui/system"
 
-export const CheckoutTotalTime = () => {
+export const CheckoutTotalTime = ({ totalTime }) => {
     return(
         <Box
             padding={2}
@@ -14,7 +13,7 @@ export const CheckoutTotalTime = () => {
                 Total time
             </Typography>
             <Typography variant="caption">
-                0s
+                { totalTime }s
             </Typography>
         </Box>
     )

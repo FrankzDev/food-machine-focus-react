@@ -47,7 +47,10 @@ const ProductList = (props) => {
                 {/* SUCCESS REQUEST */}
                 {props.products && props.products.map(product => {
                     return(
-                        <ProductItem key={product.id} product={product} />
+                        <ProductItem
+                            key={product.id}
+                            product={product}
+                            handleAddProduct={props.addProduct}/>
                     )
                 })}
             </Grid>

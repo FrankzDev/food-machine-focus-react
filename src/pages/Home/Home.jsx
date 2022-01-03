@@ -13,6 +13,8 @@ const Home = () => {
     const [ isLoading, setIsLoading ] = useState(true);
     const [ error, setError ] = useState(null);
 
+    const [ orders, setOrders ] = useState([]);
+
     useEffect(() => {
         setTimeout(() => {
             fetch(API_URL)
@@ -32,6 +34,10 @@ const Home = () => {
         }, 1000)
     }, []);
 
+    const addProduct = (product) => {
+        setOrders([...orders, product]);
+    }
+
     return(
         <Box display={ 'flex' } overflow={ 'hidden' }>
             <Box height={ '100vh' } width={ '85%' }>
@@ -44,13 +50,14 @@ const Home = () => {
                     <ProductList
                         products={ products }
                         isLoading={ isLoading }
-                        error={ error } />
+                        error={ error }
+                        addProduct={ addProduct }/>
                 </Box>
             </Box>
 
             {/* ORDERS SECTION */}
             <Box width={'15%'}>
-                <SidebarCheckout />
+                <SidebarCheckout orders={orders} />
             </Box>
         </Box>
     );

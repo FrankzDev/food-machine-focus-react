@@ -6,6 +6,10 @@ import { Box } from "@mui/system";
 
 export const ProductItem = (props) => {
 
+    const handleAdd = (product) => {
+        props.handleAddProduct(product)
+    };
+
     const useStyles = makeStyles({
         media: {
            objectFit: 'contain'
@@ -62,7 +66,8 @@ export const ProductItem = (props) => {
                             variant="contained"
                             size="large"
                             className={classes.button}
-                            fullWidth>
+                            fullWidth
+                            onClick={() => handleAdd(props.product)}>
                                 Order
                         </Button>
                     </Stack>

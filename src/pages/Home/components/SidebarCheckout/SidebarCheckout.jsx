@@ -5,7 +5,10 @@ import { Box } from "@mui/system"
 import { CheckoutItem } from "./CheckoutItem";
 import { CheckoutTotalTime } from "./CheckoutTotalTime";
 
-export const SidebarCheckout = () => {
+export const SidebarCheckout = (props) => {
+
+    var totalTime = 0;
+
     return(
         <Box
             height={'100vh'}
@@ -29,13 +32,20 @@ export const SidebarCheckout = () => {
             </Box>
             <Box>
                 <List component={'nav'}>
-                    <CheckoutItem />
+                    {props.orders && props.orders.map(( item, index ) => {
+                        totalTime = totalTime + parseInt(item.preparation_time)
+                        return(
+                            <CheckoutItem
+                                key={ index + item.id }
+                                item={ item }/>
+                        )
+                    })}
                 </List>
             </Box>
 
             <Box position={'absolute'} bottom={0} width={'15%'}>
                 <Divider variant="middle" style={{ background: grey[600] }} />
-                <CheckoutTotalTime />
+                <CheckoutTotalTime totalTime={ totalTime } />
             </Box>
         </Box>
     )
