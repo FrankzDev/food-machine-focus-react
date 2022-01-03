@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import { Divider, List, Typography } from "@mui/material"
 import { grey, orange } from "@mui/material/colors";
 
@@ -8,6 +10,14 @@ import { CheckoutTotalTime } from "./CheckoutTotalTime";
 export const SidebarCheckout = (props) => {
 
     var totalTime = 0;
+
+    const [ finalTotalTime, setTotalTime ] = useState(0);
+
+    useEffect(() => {
+        setTotalTime(totalTime);
+        const timer = setInterval(() => setTotalTime(totalTime - 1), 1000);
+            return () => clearInterval(timer);
+    })
 
     return(
         <Box
@@ -37,7 +47,7 @@ export const SidebarCheckout = (props) => {
                         return(
                             <CheckoutItem
                                 key={ index + item.id }
-                                item={ item }/>
+                                item={ item } />
                         )
                     })}
                 </List>
@@ -45,7 +55,7 @@ export const SidebarCheckout = (props) => {
 
             <Box position={'absolute'} bottom={0} width={'15%'}>
                 <Divider variant="middle" style={{ background: grey[600] }} />
-                <CheckoutTotalTime totalTime={ totalTime } />
+                <CheckoutTotalTime totalTime={ finalTotalTime } orders={props.orders} />
             </Box>
         </Box>
     )

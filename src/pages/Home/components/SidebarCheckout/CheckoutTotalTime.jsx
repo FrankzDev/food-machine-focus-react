@@ -13,8 +13,8 @@ export const CheckoutTotalTime = ({ totalTime }) => {
                 Total time
             </Typography>
             <Typography variant="caption">
-                { totalTime }s
+                { (totalTime > 0) ? `${totalTime}s` : '0s' }
             </Typography>
         </Box>
     )
-}
+};

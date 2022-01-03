@@ -35,7 +35,12 @@ const Home = () => {
     }, []);
 
     const addProduct = (product) => {
-        setOrders([...orders, product]);
+        const newOrder = {
+            id: product.id,
+            name: product.name,
+            preparation_time: product.preparation_time
+        }
+        setOrders([...orders, newOrder]);
     }
 
     return(

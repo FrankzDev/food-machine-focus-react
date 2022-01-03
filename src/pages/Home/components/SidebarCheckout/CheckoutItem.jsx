@@ -14,7 +14,7 @@ export const CheckoutItem = ({ item }) => {
                 { item.name }
             </Typography>
             <Typography variant="caption" color={orange[600]}>
-                <Countdown time={parseInt(item.preparation_time)} />
+                <Countdown time={parseInt(item.preparation_time)} item={ item } />
             </Typography>
         </ListItem>
     )
